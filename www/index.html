@@ -32,11 +32,12 @@
         });
 
         $('#btnB').click(function(e) {
-            btnBClick(e);
+              btnBClick(e);                    
         });
 
         $('#btnC').click(function(e) {
             btnCClick(e);
+            
         });
         init();
     });
@@ -182,13 +183,15 @@
     function btnAClick(e){
        active = true;
        startTime = new Date(); 
+       $("#btnA").html("restart");
+       $("body").css("backgroundColor","blue");
         
     }
 
     // ButtonBがクリックされた時の処理
     function btnBClick(e){
         active = false;
-        $("#btnB").html("再回");
+        $("body").css("backgroundColor","yellow");
     }
 
     // ButtonCがクリックされた時の処理
@@ -198,6 +201,10 @@
         period = 60* parseInt( $("#minute").val() ) + parseInt( $("#second").val() );
         $("#time").html("経過時間： 0");
         $("#remain").html("残り時間： " + period);
+        $("#btnA").html("start");
+        $("#btnB").html("stop");
+        $("#btnC").html("set");
+        $("body").css("backgroundColor","skyblue");
         
     }
     
@@ -232,9 +239,9 @@
 
     <div id="remain">Remaining time</div>
     <div id="time">Time</div>
-    <button id="btnA">start</button>  
-    <button id="btnB">stop</button>  
-    <button id="btnC">set</button>  
+    <button id="btnA">ButtonA</button>  
+    <button id="btnB">ButtonB</button>  
+    <button id="btnC">ButtonC</button>  
     <input type="number" id="minute" value=3 >
     <input type="number" id="second" value=0 >
 </body>
